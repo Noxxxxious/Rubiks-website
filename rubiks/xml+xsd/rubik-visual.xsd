@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="rubik">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="description">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element maxOccurs="unbounded" name="component">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="title" type="xs:string" />
+										<xs:element name="content" type="xs:string" />
+									</xs:sequence>
+									<xs:attribute name="id" type="xs:unsignedByte" use="required" />
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="source">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="title" type="xs:string" />
+										<xs:element name="link">
+											<xs:complexType>
+												<xs:simpleContent>
+													<xs:extension base="xs:string">
+														<xs:attribute name="src" type="xs:string" use="required" />
+													</xs:extension>
+												</xs:simpleContent>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+						<xs:attribute name="about" type="xs:string" use="required" />
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="methods">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="title" type="xs:string" />
+							<xs:element maxOccurs="unbounded" name="method">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="method_name" type="xs:string" />
+										<xs:element name="link">
+											<xs:complexType>
+												<xs:simpleContent>
+													<xs:extension base="xs:string">
+														<xs:attribute name="src" type="xs:string" use="required" />
+													</xs:extension>
+												</xs:simpleContent>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+									<xs:attribute name="diff" type="xs:string" use="required" />
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="puzzles">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="title" type="xs:string" />
+							<xs:element maxOccurs="unbounded" name="cube">
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="xs:string">
+											<xs:attribute name="src" type="xs:string" use="required" />
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="speedcubers">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="title" type="xs:string" />
+							<xs:element maxOccurs="unbounded" name="speedcuber">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="fname" type="xs:string" />
+										<xs:element name="surname" type="xs:string" />
+										<xs:element name="age" type="xs:unsignedByte" />
+										<xs:element name="nationality" type="xs:string" />
+										<xs:element name="record">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="time" type="xs:decimal" />
+													<xs:element name="date" type="xs:date" />
+													<xs:element name="tournament" type="xs:string" />
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="medals" type="xs:string" />
+									</xs:sequence>
+									<xs:attribute name="gender" type="xs:string" use="required" />
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="author">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="fname" type="xs:string" />
+							<xs:element name="surname" type="xs:string" />
+							<xs:element name="faculty" type="xs:string" />
+							<xs:element name="index" type="xs:unsignedInt" />
+						</xs:sequence>
+						<xs:attribute name="gender" type="xs:string" use="required" />
+						<xs:attribute name="nationality" type="xs:string" use="required" />
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="contact">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="tel" type="xs:unsignedInt" />
+							<xs:element name="email" type="xs:string" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

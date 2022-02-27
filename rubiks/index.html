@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="pl">
+	<head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Kostki Rubika</title>
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+    </head>
+    <body>
+        <header>
+            <a href="index.html"><img class="logo" src="img/logo.png" alt="logo"></a>
+            <nav>
+                <ul class="links">
+                    <li><a href="#">GALERIA</a>
+                        <ul>
+                            <li class="list_header">KOSTKI:</li>
+                            <li><a href="standardowe.html">Standardowe</a></li>
+                            <li><a href="niestandardowe.html">Niestandardowe</a></li>
+                            <li><a href="zmiennoksztaltne.html">Zmiennokształtne</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="zawody.html">SPEEDCUBING</a></li>
+                    <li><a href="historia.html">HISTORIA</a></li>
+                    <li><a class="inactive" href="ankieta.html">ANKIETA</a></li>
+                </ul> 
+            </nav>
+            <form method="get" action="ankieta.html">
+                <button>ANKIETA</button>
+            </form>
+        </header>
+        <main>
+            <h2>Czym jest kostka rubika?</h2>
+            <p>
+                Zabawa kostką polega na takim ułożeniu kwadratów, aby na każdej ścianie wszystkie posiadały jeden kolor. Składa się ona z 26 sześcianów i przegubu umieszczonego w środku. Przegub ten umożliwia każdej z zewnętrznych warstw kostki obrót wokół osi prostopadłej do danej warstwy i przechodzącej przez środek kostki.
+                Liczba kombinacji różnych ułożeń kostki 3x3x3 wynosi ponad 43 tryliony
+            </p>
+            <br>
+            <h2>Metody układania kostki</h2>
+                <ul id="methods">
+                    <li><a href="https://pl.wikipedia.org/wiki/Layer_by_Layer" target="_blank">LBL (Layer by Layer) - meotda dla początkujących</a></li>
+                    <li><a href="https://pl.wikipedia.org/wiki/Metoda_Fridrich" target="_blank">Metoda Fridrich (tzw. CFOP) - metoda zaawansowana</a></li>
+                    <li><a href="https://pl.wikipedia.org/wiki/Metoda_Petrusa" target="_blank">Metoda Petrusa - technika jak najmniejszej ilości ruchów</a></li>
+                </ul>
+            <br>
+            <h2>Optymalne rozwiązanie</h2>
+            <p>
+                Od początku rozpowszechnienia kostki Rubika zastanawiano się, jaka jest minimalna liczba ruchów potrzebna do rozwiązania każdego ułożenia. Już w 1995 wiedziano, że optymalna liczba zawiera się w przedziale 20-29, czyli istnieje pomieszana kostka, którą da się ułożyć tylko w 20 lub więcej ruchach oraz każdą kostkę da się rozwiązać w 29 ruchach lub mniej. W 2010 zespół matematyków za pomocą serwerów Google udowodnił, że ‘boską’ liczbą dla kostki Rubika jest 20. Oznacza to, że każde ułożenie można rozwiązać maksymalnie w 20 ruchach (choć zazwyczaj wystarczy 15-19 ruchów).
+            </p><br>
+            <h2>Źródło</h2>
+            <p id="source">
+                <a href="https://pl.wikipedia.org/wiki/Kostka_Rubika" target="_blank">Wikipedia - Kostka Rubika</a>
+            </p><br> 
+            <form method="get" action="#">
+                <button id="gotop" title="Go to top">Góra</button>
+            </form>
+        </main>
+        <footer>
+            <p>
+                Michał Wrzosek s184608, PG ETI, strona stworzona na projekty z WAI i HIH
+            </p>
+        </footer>
+        
+    </body>
+</html>

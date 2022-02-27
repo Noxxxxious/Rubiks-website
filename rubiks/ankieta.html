@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="pl">
+	<head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Kostki Rubika</title>
+        <link rel="stylesheet" type="text/css" href="css/ankieta.css" />
+        <link rel="stylesheet" type="text/css" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    </head>
+    <body>
+        <header>
+            <a href="index.html"><img class="logo" src="img/logo.png" alt="logo"></a>
+            <nav>
+                <ul class="links">
+                    <li><a href="#">GALERIA</a>
+                        <ul>
+                            <li class="list_header">KOSTKI:</li>
+                            <li><a href="standardowe.html">Standardowe</a></li>
+                            <li><a href="niestandardowe.html">Niestandardowe</a></li>
+                            <li><a href="zmiennoksztaltne.html">Zmiennokształtne</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="zawody.html">SPEEDCUBING</a></li>
+                    <li><a href="historia.html">HISTORIA</a></li>
+                    <li><a class="inactive" href="ankieta.html">ANKIETA</a></li>
+                </ul>
+            </nav>
+            <form method="get" action="ankieta.html">
+                <button>ANKIETA</button>
+            </form>
+        </header>
+        <main>
+            <h2>ANKIETA</h2>
+            <form action="results.html" method="GET">
+                <div>
+                    Płeć:
+                    <div>
+                        <label for="female">Kobieta&nbsp;</label>
+                        <input type="radio" name="gender" id="female" value="female" required>&nbsp;
+                        <label for="male">Mężczyzna&nbsp;</label>
+                        <input type="radio" name="gender" id="male" value="male" required>&nbsp;
+                        <label for="other">Inna&nbsp;</label> 
+                        <input type="radio" name="gender" id="other" value="other" required>
+                    </div>
+                </div>
+                <div>
+                    <label for="fname">Imię:&nbsp;</label>
+                    <input type="text" name="fname" id="fname" required>
+                </div>
+                <div>
+                    <label for="lname">Nazwisko:&nbsp;</label>
+                    <input type="text" name="lname" id="lname" required>
+                </div>
+                <div>
+                    <label for="email">Email:&nbsp;</label>
+                    <input type="email" name="email" id="email" required>
+                </div>
+                <div>
+                    <label for="age">Wiek:&nbsp;</label>
+                    <input type="number" name="age" id="age" min="1" max="140" required>
+                </div>
+                <div>
+                    <label for="date">Data urodzin:&nbsp;</label>
+                    <input type="date" name="date" id="date" required>
+                </div>
+                <div>
+                    <label for="canSolve">Czy umiesz ułożyć kostkę rubika?</label><br>
+                    <select name="canSolve" id="canSolve">
+                        <option value="false">Nie</option>
+                        <option value="true">Tak</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="comment">Komentarz:</label><br>
+                    <textarea name="comment" id="comment"></textarea>
+                </div>
+                <div>
+                    <button type="reset">Reset</button>
+                    <button type="submit">Prześlij</button>
+                </div>
+            </form>
+        </main>
+        <footer>
+            <p>
+                Michał Wrzosek s184608, PG ETI, strona stworzona na projekty z WAI i HIH
+            </p>
+        </footer>
+    </body>
+</html>

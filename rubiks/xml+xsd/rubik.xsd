@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <xs:complexType name="componentType">
+        <xs:sequence>
+            <xs:element name="title" type="xs:string"/>
+            <xs:element name="content" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:byte"/>
+    </xs:complexType>
+
+    <xs:complexType name="descriptionType">
+        <xs:sequence>
+            <xs:element name="component" type="componentType" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="source">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="title" type="xs:string"/>
+                        <xs:element ref="link"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+        <xs:attribute name="about" type="xs:string"/>
+    </xs:complexType>
+
+    <xs:complexType name="linkType">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute name="src" type="xs:anyURI" />
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+
+    <xs:element name="link" type="linkType"/>
+
+    <xs:complexType name="methodType" mixed="true">
+        <xs:sequence>
+            <xs:element name="method_name" type="xs:string"/>
+            <xs:element ref="link"/>
+        </xs:sequence>
+        <xs:attribute ref="diff" use="required"/>
+    </xs:complexType>
+    
+    <xs:complexType name="methodsType">
+        <xs:sequence>
+            <xs:element name="title" type="xs:string"/>
+            <xs:element name="method" type="methodType" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:attribute name="diff" type="diffType" />
+	<xs:simpleType name="diffType" >
+		<xs:restriction base="xs:token" >
+			<xs:enumeration value="begginer" />
+			<xs:enumeration value="advanced" />
+			<xs:enumeration value="pro" />
+		</xs:restriction>
+	</xs:simpleType>
+
+    <xs:complexType name="puzzlesType">
+        <xs:sequence>
+            <xs:element name="title" type="xs:string"/>
+            <xs:element ref="cube" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="cube" type="linkType"/>
+
+    <xs:simpleType name="timeType">
+        <xs:restriction base="xs:double">
+            <xs:minInclusive value="0.01"/>
+            <xs:maxInclusive value="10.00"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="longstring">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+            <xs:maxLength value="50"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="date">
+        <xs:restriction base="xs:integer">
+            <xs:minInclusive value="1976"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="tournamentType">
+        <xs:union memberTypes="longstring date"/>
+    </xs:simpleType>
+
+    <xs:complexType name="recordType">
+        <xs:sequence>
+            <xs:element name="time" type="timeType"/>
+            <xs:element name="date" type="xs:date"/>
+            <xs:element name="tournament" type="tournamentType"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="shortstringType">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+            <xs:maxLength value="20"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="ageType">
+        <xs:restriction base="xs:integer">
+            <xs:minInclusive value="1"/>
+            <xs:maxInclusive value="120"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="medalsType">
+        <xs:list>
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:maxLength value="11"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:list>
+    </xs:simpleType>
+
+    <xs:group name="cuberdata">
+        <xs:sequence>
+            <xs:element name="fname" type="shortstringType"/>
+            <xs:element name="surname" type="shortstringType"/>
+            <xs:element name="age" type="ageType"/>
+            <xs:element name="nationality" type="shortstringType"/>
+            <xs:element name="record" type="recordType"/>
+            <xs:element name="medals" type="medalsType"/>
+        </xs:sequence>
+    </xs:group>
+
+    <xs:complexType name="speedcubersType">
+        <xs:sequence>
+            <xs:element name="title" type="xs:string"/>
+            <xs:element name="speedcuber" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                    <xs:group ref="cuberdata"/>
+                    <xs:attribute name="gender" use="optional"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="authorType" mixed="true">
+        <xs:sequence>
+            <xs:element name="fname" type="shortstringType"/>
+            <xs:element name="surname" type="shortstringType"/>
+            <xs:element name="faculty">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:pattern value="[W]([A-Z])*"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="index">
+                <xs:simpleType>
+                    <xs:restriction base="xs:integer">
+                        <xs:pattern value="[1-9][0-9][0-9][0-9][0-9][0-9]"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+        </xs:sequence>
+        <xs:attribute ref="gender" use="optional"/>
+        <xs:attribute name="nationality" type="xs:string"/>
+    </xs:complexType>
+
+    <xs:simpleType name="emailType">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="([a-zA-Z])*[@]([a-zA-Z])*[.]([a-zA-Z])*"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:attribute name="gender">
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                <xs:pattern value="male|female|other"/>
+            </xs:restriction>
+        </xs:simpleType> 
+    </xs:attribute>
+
+    <xs:element name="rubik">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="description" type="descriptionType"/>
+                <xs:element name="methods" type="methodsType"/>
+                <xs:element name="puzzles" type="puzzlesType"/>
+                <xs:element name="speedcubers" type="speedcubersType"/>
+                <xs:element name="author" type="authorType"/>
+                <xs:element name="contact">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="tel" type="xs:decimal"/>
+                            <xs:element name="email" type="emailType"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>

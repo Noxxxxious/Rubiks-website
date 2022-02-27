@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rubik [
+<!ELEMENT rubik (description, methods, puzzles,speedcubers, author, contact)>
+<!ELEMENT description (component+, source)>
+<!ELEMENT component (title, content)>
+<!ELEMENT source (title, link)>
+<!ELEMENT title (#PCDATA)>
+<!ELEMENT content (#PCDATA)>
+<!ELEMENT link (#PCDATA)>
+<!ELEMENT methods (title, method+)>
+<!ELEMENT method (method_name, link)>
+<!ELEMENT method_name (#PCDATA)>
+<!ELEMENT puzzles (title, cube+)>
+<!ELEMENT cube (#PCDATA)>
+<!ELEMENT speedcubers (title, speedcuber+)>
+<!ELEMENT speedcuber (fname, surname, (age|birth), nationality, record, medals)>
+<!ELEMENT fname (#PCDATA)>
+<!ELEMENT surname (#PCDATA)>
+<!ELEMENT age (#PCDATA)>
+<!ELEMENT birth (#PCDATA)>
+<!ELEMENT nationality (#PCDATA)>
+<!ELEMENT record (time, date, tournament)>
+<!ELEMENT time (#PCDATA)>
+<!ELEMENT date (#PCDATA)>
+<!ELEMENT tournament (#PCDATA)>
+<!ELEMENT medals (#PCDATA)>
+<!ELEMENT author (fname, surname, faculty, index)>
+<!ELEMENT faculty (#PCDATA)>
+<!ELEMENT index (#PCDATA)>
+<!ELEMENT contact (tel, email)>
+<!ELEMENT tel (#PCDATA)>
+<!ELEMENT email (#PCDATA)>
+<!ATTLIST description about CDATA "Kostki Rubika">
+<!ATTLIST component id CDATA #IMPLIED>
+<!ATTLIST link src CDATA #REQUIRED>
+<!ATTLIST method diff (begginer|advanced|pro) #REQUIRED>
+<!ATTLIST cube src CDATA #REQUIRED>
+<!ATTLIST speedcuber gender (male|female) "male">
+<!ATTLIST author gender (male|female) "male">
+<!ATTLIST author nationality CDATA "Poland">
+<!ENTITY kombinacje "Kostka Rubika posiada 6 ścian, a każda z nich sklada się z 9 kolorowych kwadratów. Taka konfiguracja pozwala na ponad 43 tryliony różnych ułożeń.">
+]>
+<rubik>
+    <description about="Kostki Rubika">
+        <component id="1">
+            <title>Czym jest Kostka Rubika?</title>
+            <content>
+                Kostka Rubika jest zabawką logiczną wynalezioną przez Ernő Rubika w 1974 roku. W 1976 roku została skonstruowana i opatentowana w Japonii przez inżyniera Terutoshiego Ishige.
+            </content>
+        </component>
+        <component id="2">
+            <title>Ilość Kombinacji</title>
+            <content>
+                &kombinacje;
+            </content>
+        </component>
+        <component id="3">
+            <title>Optymalne rozwiązanie</title>
+            <content>
+                W 2010 zespół matematyków za pomocą serwerów Google udowodnił, że ‘boską’ liczbą dla kostki Rubika jest 20. Oznacza to, że każde ułożenie można rozwiązać maksymalnie w 20 ruchach.
+            </content>
+        </component>
+        <source>
+            <title>Źródło</title>
+            <link src="https://pl.wikipedia.org/wiki/Kostka_Rubika#Oficjalne_rekordy_World_Cube_Association">Wikipedia</link>
+        </source>
+    </description>
+
+    <methods>
+        <title>Metody układania kostki</title>
+        <method diff="begginer">
+            <method_name>LBL (Layer by Layer)</method_name>
+            <link src="https://pl.wikipedia.org/wiki/Layer_by_Layer">meotda dla początkujących</link>
+        </method>
+        <method diff="advanced">
+            <method_name>Metoda Fridrich (tzw. CFOP)</method_name>
+            <link src="https://pl.wikipedia.org/wiki/Metoda_Fridrich">metoda zaawansowana</link>
+        </method>
+        <method diff="pro">
+            <method_name>Metoda Petrusa</method_name>
+            <link src="https://pl.wikipedia.org/wiki/Metoda_Petrusa">technika jak najmniejszej ilości ruchów</link>
+        </method>
+    </methods>
+
+    <puzzles>
+        <title>Galeria Kostek</title>
+        <cube src="img/1/cube2.jpg">2x2</cube>
+        <cube src="img/1/cube3.jpg">3x3</cube>
+        <cube src="img/1/cube4.jpg">4x4</cube>
+        <cube src="img/1/cube5.jpg">5x5</cube>
+        <cube src="img/1/cube10.jpg">10x10</cube>
+        <cube src="img/1/pyraminx.jpg">Pyraminx</cube>
+        <cube src="img/1/megaminx.jpg">Megaminx</cube>
+        <cube src="img/1/skewb.jpg">Skewb</cube>
+        <cube src="img/2/cube339.jpg">3x3x9</cube>
+        <cube src="img/2/gear.jpg">Gear Cube</cube>
+        <cube src="img/3/square1.jpg">Square-1</cube>
+        <cube src="img/3/mirror3.jpg">Mirror Cube</cube>
+        <cube src="img/2/wheel.jpg">Wheel of time Cube</cube>
+    </puzzles>
+
+    <speedcubers>
+        <title>Najlepsi speedcuberzy</title>
+        <speedcuber gender="male">
+            <fname>Yusheng</fname>
+            <surname>Du</surname>
+            <age>17</age>
+            <nationality>Chiny</nationality>
+            <record>
+                <time>3.47</time>
+                <date>2018-11-24</date>
+                <tournament>Wuhu Open 2018</tournament>
+            </record>
+            <medals>złote-71 srebrne-49 brązowe-33</medals>
+        </speedcuber>
+        <speedcuber gender="male">
+            <fname>Feliks</fname>
+            <surname>Zemdegs</surname>
+            <birth>1995</birth>
+            <nationality>Australia</nationality>
+            <record>
+                <time>4.16</time>
+                <date>2020-02-29</date>
+                <tournament>Auckland Summer Open 2020</tournament>
+            </record>
+            <medals>złote-606 srebrne-109 brązowe-59</medals>
+        </speedcuber>
+        <speedcuber gender="male">
+            <fname>Patrick</fname>
+            <surname>Ponce</surname>
+            <age>20</age>
+            <nationality>Stany Zjednoczone</nationality>
+            <record>
+                <time>4.24</time>
+                <date>2019-02-17</date>
+                <tournament>Northeast Championship 2019</tournament>
+            </record>
+            <medals>złote-152 srebrne-64 brązowe-37</medals>
+        </speedcuber>
+    </speedcubers>
+
+    <author gender="male" nationality="Poland">
+        <fname>Michał</fname>
+        <surname>Wrzosek</surname>
+        <faculty>WETI</faculty>
+        <index>184608</index>
+    </author>
+
+    <contact>
+        <tel>321654987</tel>
+        <email>adres@web.com</email>
+    </contact>
+
+</rubik>
